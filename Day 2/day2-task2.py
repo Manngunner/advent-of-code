@@ -1,8 +1,8 @@
 import re
 # Opponent will play
 # A = Rock, B = Paper, C = Scissors
-# I "Should" play
-# X = Rock, Y = Paper, Z = Scissors
+# The result I should get
+# X = lose, Y = draw, Z = win
 
 # Scores
 # I pick Rock(X) = 1, Paper(Y) = 2, Scissors(Z) = 3
@@ -18,11 +18,11 @@ with open ("Day 2/input.txt", "r", encoding="utf8") as inputfile:
             case "A":
                 match game.group(2):
                     case "X":
-                        score += 4
-                    case "Y":
-                        score += 8
-                    case "Z":
                         score += 3
+                    case "Y":
+                        score += 4
+                    case "Z":
+                        score += 8
             case "B":
                 match game.group(2):
                     case "X":
@@ -34,10 +34,10 @@ with open ("Day 2/input.txt", "r", encoding="utf8") as inputfile:
             case "C":
                 match game.group(2):
                     case "X":
-                        score += 7
-                    case "Y":
                         score += 2
-                    case "Z":
+                    case "Y":
                         score += 6
+                    case "Z":
+                        score += 7
 
 print(score)
