@@ -1,7 +1,7 @@
 import re
 from collections import deque
 
-with open("Day 1/input.txt", "r") as inputfile:
+with open("Day 1/input.txt", "r", encoding="utf8") as inputfile:
     calories = int()
     counter = int()
     topthreecalories = deque([1, 2, 3], maxlen=3)

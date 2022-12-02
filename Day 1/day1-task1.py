@@ -1,6 +1,6 @@
 import re
 
-with open("Day 1/input.txt", "r") as inputfile:
+with open("Day 1/input.txt", "r", encoding="utf8") as inputfile:
     calories = int()
     highestcalories = int()
     for line in inputfile.readlines():
