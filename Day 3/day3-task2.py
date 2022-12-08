@@ -2,7 +2,7 @@ from collections import deque
 
 PRIORITY = '#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-with open ("Day 3/input.txt", "r", encoding="utf8") as inputfile:
+with open("Day 3/input.txt", "r", encoding="utf8") as inputfile:
     totalpriorities = int()
     badgetype = []
     elfgroup = deque(maxlen=3)

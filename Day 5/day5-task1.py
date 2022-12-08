@@ -1,7 +1,7 @@
 import re
 from collections import deque
 
-with open ("Day 5/input.txt", "r", encoding="utf8") as inputfile:
+with open("Day 5/input.txt", "r", encoding="utf8") as inputfile:
     inputtext = inputfile.readlines()
     # Make the cargobed first
     for line in inputtext:

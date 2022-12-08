@@ -1,7 +1,7 @@
 
 PRIORITY = '#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-with open ("Day 3/input.txt", "r", encoding="utf8") as inputfile:
+with open("Day 3/input.txt", "r", encoding="utf8") as inputfile:
     totalpriorities = int()
     commontype = []
     for line in inputfile.readlines():

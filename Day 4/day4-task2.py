@@ -1,6 +1,6 @@
 import re
 
-with open ("Day 4/input.txt", "r", encoding="utf8") as inputfile:
+with open("Day 4/input.txt", "r", encoding="utf8") as inputfile:
     overlapcount = int()
     for line in inputfile.readlines():
         cleaning = re.match(r"(\d+)-(\d+),(\d+)-(\d+)", line.rstrip())

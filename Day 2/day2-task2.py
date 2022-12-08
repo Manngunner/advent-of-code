@@ -9,7 +9,7 @@ import re
 # plus
 # Result of lose = 0, draw = 3, win = 6
 
-with open ("Day 2/input.txt", "r", encoding="utf8") as inputfile:
+with open("Day 2/input.txt", "r", encoding="utf8") as inputfile:
     score = int()
     for line in inputfile.readlines():
         game = re.match(r"(\w)\s(\w)", line)
