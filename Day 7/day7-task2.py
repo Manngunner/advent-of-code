@@ -41,7 +41,6 @@ with open("Day 7/input.txt", "r", encoding="utf8") as inputfile:
             listing = True
 
 results = {'/':0}
-totalsize = int()
 for string, directory in directories.items():
     if len(string[:-1]) == 0:
         dirpath = string
@@ -62,9 +61,14 @@ for string, directory in directories.items():
         crawl.pop()
         results['/'] += results[dirpath]
 
-for dir, size in results.items():
-    if size <= 100_000:
-        totalsize += size
+#         Free space req    total space     current usage
+spaceneeded = 30_000_000 - (70_000_000 - int(results["/"]))
 
-print(results["/"])
-print(allfiles)
+print(spaceneeded)
+
+deletecandidate = "/"
+for dir, size in results.items():
+    if size > spaceneeded and size < results[deletecandidate]:
+        deletecandidate = dir
+
+print(results[deletecandidate])

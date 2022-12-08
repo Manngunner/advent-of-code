@@ -66,5 +66,4 @@ for dir, size in results.items():
     if size <= 100_000:
         totalsize += size
 
-print(results["/"])
-print(allfiles)
+print(totalsize)
