@@ -21,11 +21,13 @@ with open("Day 8/input.txt", "r", encoding="utf8") as inputfile:
             if col != 1:
                 for above in grid[:col-1]:
                     if tree <= above[row]:
+                        visable = False
                         break
                     visable = True
                     break
                 for below in grid[col+1:]:
                     if tree <= below[row]:
+                        visable = False
                         break
                     visable = True
                     break
@@ -36,11 +38,13 @@ with open("Day 8/input.txt", "r", encoding="utf8") as inputfile:
             if row != 1:
                 for left in grid[col][:row-1]:
                     if tree <= left:
+                        visable = False
                         break
                     visable = True
                     break
                 for right in grid[col][row+1:]:
                     if tree <= right:
+                        visable = False
                         break
                     visable = True
                     break
