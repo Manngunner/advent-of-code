@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 class Directory:
     files: dict = field(default_factory=lambda : {})
     subdirectories: list = field(default_factory=lambda : [])
-    parentdirectory: str() = ""
+    parentdirectory: str = ""
     listedbefore: bool = False
 
 directories = {"/" : Directory()}
