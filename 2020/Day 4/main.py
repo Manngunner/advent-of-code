@@ -43,13 +43,13 @@ def main(passports: list[str]) -> None:
             ):
                 valid2 = False
                 continue
-            if key == "hcl" and not re.match(r"#[0-9a-f]{6}$", value):
+            if key == "hcl" and not re.match(r"^#[0-9a-f]{6}$", value):
                 valid2 = False
                 continue
             if key == "ecl" and value not in VALID_EYE_COLOURS:
                 valid2 = False
                 continue
-            if key == "pid" and not re.match(r"\d{9}$", value):
+            if key == "pid" and not re.match(r"^\d{9}$", value):
                 valid2 = False
                 continue
         if valid1:
