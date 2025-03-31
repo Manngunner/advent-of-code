@@ -9,13 +9,16 @@ with Path("2020/Day 6/input").open("r") as file:
 
 
 def main(groups: list[list[str]]) -> tuple[int]:
-    total = 0
+    total_yes = 0
+    total_all = 0
     for group in groups:
-        forms = (set(x) for x in group)
+        forms = [set(x) for x in group]
         yeses = set.union(*forms)
-        total += len(yeses)
+        unanimous = set.intersection(*forms)
+        total_yes += len(yeses)
+        total_all += len(unanimous)
 
-    return (total, 2)
+    return (total_yes, total_all)
 
 
 if __name__ == "__main__":
