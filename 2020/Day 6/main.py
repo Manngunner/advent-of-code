@@ -2,10 +2,10 @@ from pathlib import Path
 
 with Path("2020/Day 6/sample").open("r") as file:
     file_parse: list[str] = file.read().strip().split("\n\n")
-    sample_input: list[str] = [group.split("\n") for group in file_parse]
+    sample_input: list[list[str]] = [group.split("\n") for group in file_parse]
 with Path("2020/Day 6/input").open("r") as file:
     file_parse: list[str] = file.read().strip().split("\n\n")
-    standard_input: list[str] = [group.split("\n") for group in file_parse]
+    standard_input: list[list[str]] = [group.split("\n") for group in file_parse]
 
 
 def main(groups: list[list[str]]) -> tuple[int]:
