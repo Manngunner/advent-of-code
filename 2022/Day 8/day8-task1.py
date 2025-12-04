@@ -1,6 +1,4 @@
-
-
-with open("Day 8/input.txt", "r", encoding="utf8") as inputfile:
+with open("2022/Day 8/input.txt", "r", encoding="utf8") as inputfile:
     grid = []
     visabletrees = int()
     for line in inputfile.readlines():
@@ -16,45 +14,45 @@ with open("Day 8/input.txt", "r", encoding="utf8") as inputfile:
         # Ignore the first and last
         row = 1
         for tree in column[1:-1]:
-                #print(f"Col:{col}, Row:{row}, Tree:{tree}")
+            # print(f"Col:{col}, Row:{row}, Tree:{tree}")
             visable = False
             if col != 1:
-                for above in grid[:col-1]:
+                for above in grid[: col - 1]:
                     if tree <= above[row]:
                         visable = False
                         break
                     visable = True
                     break
-                for below in grid[col+1:]:
+                for below in grid[col + 1 :]:
                     if tree <= below[row]:
                         visable = False
                         break
                     visable = True
                     break
-            elif col == 1 and tree > grid[col-1][row]:
+            elif col == 1 and tree > grid[col - 1][row]:
                 visable = True
-            elif tree > grid[col+1][row]:
+            elif tree > grid[col + 1][row]:
                 visable = True
             if row != 1:
-                for left in grid[col][:row-1]:
+                for left in grid[col][: row - 1]:
                     if tree <= left:
                         visable = False
                         break
                     visable = True
                     break
-                for right in grid[col][row+1:]:
+                for right in grid[col][row + 1 :]:
                     if tree <= right:
                         visable = False
                         break
                     visable = True
                     break
-            elif row == 1 and tree > grid[col][row-1]:
+            elif row == 1 and tree > grid[col][row - 1]:
                 visable = True
-            elif tree > grid[col][row-1]:
+            elif tree > grid[col][row - 1]:
                 visable = True
             if visable:
                 visabletrees += 1
-                #print(f"VISABLE: Col:{col}, Row:{row}, Tree:{tree}")
+                # print(f"VISABLE: Col:{col}, Row:{row}, Tree:{tree}")
             row += 1
         col += 1
 print(visabletrees)
