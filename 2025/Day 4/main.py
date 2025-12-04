@@ -21,40 +21,16 @@ def is_roll(row: int, column: int) -> bool:
     return department[row][column] == "@"
 
 
-def get_surrounding_score(row: int, column: int, row_max_index: int, column_max_index: int) -> int:
-    look_up = row != 0
-    look_down = row != row_max_index
-    look_left = column != 0
-    look_right = column != column_max_index
-    surrounding_score = 0
-    if look_up and look_down and look_left and look_right:
-        for direction in DIRECTIONS:  # noqa: PLC0206
-            row_mod, col_mod = DIRECTIONS[direction]
-            if is_roll(row + row_mod, column + col_mod):
-                surrounding_score += 1
-    if not look_up:
-        for direction in ["left", "right", "down", "left_down", "right_down"]:
-            row_mod, col_mod = DIRECTIONS[direction]
-            if is_roll(row + row_mod, column + col_mod):
-                surrounding_score += 1
-    if not look_down:
-        for direction in ["left", "right", "up", "left_up", "right_up"]:
-            row_mod, col_mod = DIRECTIONS[direction]
-            if is_roll(row + row_mod, column + col_mod):
-                surrounding_score += 1
-    if not look_left:
-        for direction in ["right", "up", "down", "right_up", "right_down"]:
-            row_mod, col_mod = DIRECTIONS[direction]
-            if is_roll(row + row_mod, column + col_mod):
-                surrounding_score += 1
-    if not look_right:
-        for direction in ["left", "up", "down", "left_up", "left_down"]:
-            row_mod, col_mod = DIRECTIONS[direction]
-            if is_roll(row + row_mod, column + col_mod):
-                surrounding_score += 1
-
-    return surrounding_score
-
+def get_surrounding_score(row: int, column: int, row_max: int, col_max: int) -> int:
+    score = 0
+    for row_mod, col_mod in DIRECTIONS.values():
+        check_row, check_col = row + row_mod, column + col_mod
+        # Ensure non-valid indexes are used
+        if (check_row < 0 or check_row > row_max) or (check_col < 0 or check_col > col_max):
+            continue
+        if is_roll(check_row, check_col):
+            score += 1
+    return score
 
 removeable_indexes: list[tuple[int, int]] = []
 total_removed: int = 0
